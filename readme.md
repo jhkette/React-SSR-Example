@@ -1,4 +1,4 @@
-# Server Side Rendering example for react
+# Server Side Rendering example for a React project
 
 This is an example of a project of a react project that uses React that is server side rendered. It is from a short Udemy course. 
 
