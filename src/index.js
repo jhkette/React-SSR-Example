@@ -1,40 +1,20 @@
+// This is the node index.js page. It sets up the server that 
+// renders the skeleton of the react application on the server side.
 
-/* NB. WE ARE USING ES2015 import syntax here. This is not supported by
-NODE usually. However we are sending this code to WEBPACK then running it*/
+// import express and rendererr
 import express from 'express'
-import React from 'react'
-// reactDom modules imported to be used to render 
-// react jsx server side. This takes jsx and converts it to HTML
-// on the server
-import {renderToString} from 'react-dom/server';
-import Home from './client/components/Home';
+import renderer from './helpers/renderer';
 
+// initiate call express
 const app = express();
-
+// set public folder
 app.use(express.static('public'))
 
 
-
-
-
-// 
+// get the index route
+// the renderer function comes from helpers
 app.get('/', (req, res) => {
-
-    const content = renderToString(<Home />)
-    const html = `
-<html>
-    <head>
-    </head>
-    <body>
-        <div>${content}</div>
-        <script src="bundle.js"></script>
-    </body>
-</html>
-`
-    
-
-
-    res.send(html)
+    res.send(renderer())
 })
 
 app.listen(3000, () => {
