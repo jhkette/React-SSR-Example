@@ -1022,12 +1022,17 @@ var _Home2 = _interopRequireDefault(_Home);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// console.log just to check javascript is running live in the browser
+console.log('i just want to check if this is working');
+
 // We are using hydrate as opposed to render here. 
 // as we are adding to content that already exists(ie this is the
 // react code for ssr)
-_reactDom2.default.hydrate(_react2.default.createElement(_Home2.default, null), document.querySelector('#root')); // Startup point for client sided application
+// Startup point for client sided application
 // The only thing that should be here is client logic - NEVER
 //SERVER LOGIC
+
+_reactDom2.default.hydrate(_react2.default.createElement(_Home2.default, null), document.querySelector('#root'));
 
 /***/ }),
 /* 17 */

@@ -9,7 +9,7 @@ import {renderToString} from 'react-dom/server';
 import Home from '../client/components/Home';
 
 // return home component with 'content' variable
-// script is added at the bottom.
+// script is added at the bottom. 
 export default () => {
     const content = renderToString(<Home />);
     return `

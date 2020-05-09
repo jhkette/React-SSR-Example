@@ -176,7 +176,7 @@ var _Home2 = _interopRequireDefault(_Home);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // return home component with 'content' variable
-// script is added at the bottom.
+// script is added at the bottom. 
 
 // reactDom modules imported to be used to render 
 // react jsx server side. This takes jsx and converts it to HTML
