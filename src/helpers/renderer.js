@@ -6,12 +6,26 @@ import React from 'react';
 // on the server
 
 import {renderToString} from 'react-dom/server';
-import Home from '../client/components/Home';
+import {StaticRouter} from 'react-router-dom';
+import Routes from '../client/Routes'
+import {Provider} from 'react-redux';
 
-// return home component with 'content' variable
+// return 'routes' with 'content' variable
 // script is added at the bottom. 
-export default () => {
-    const content = renderToString(<Home />);
+export default (req, store) => {
+    const content = renderToString(
+        // we are using static router here. This is from 
+        // react-router-dom and used specifically for ssr. 
+        // https://reacttraining.com/react-router/web/api/StaticRouter
+        // we need to add the context and a location . The location param
+        //is from the request object from express (passed in as an arguemnt on 
+        // the index page). 
+        <Provider store={store}>
+            <StaticRouter location={req.path} context={{}}>
+                <Routes />
+            </StaticRouter>
+        </Provider>
+    );
     return `
         <html>
             <head>
